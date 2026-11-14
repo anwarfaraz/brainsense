@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact | BrainSense</title>
+  <meta name="description" content="Neem contact op met BrainSense in Zwolle voor trainingen, workshops en lezingen.">
+  <link rel="icon" href="assets/img/logo.png">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Naar inhoud</a>
+  <div class="ai-notice">[AI Generated - Needs Human Review]</div>
+
+  <header class="site-header">
+    <nav class="container nav" aria-label="Hoofdmenu">
+      <a class="brand" href="index.html"><img src="assets/img/logo.png" alt="" width="42" height="42"><span>Brain<b>Sense</b></span></a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Menu openen"><span></span></button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="slimmer-leren.html">Slimmer leren</a></li>
+        <li><a href="slimmer-lesgeven.html">Slimmer lesgeven</a></li>
+        <li><a href="slimmer-werken.html">Slimmer werken</a></li>
+        <li><a href="lezingen.html">Lezingen</a></li>
+        <li><a class="btn" href="contact.html" aria-current="page">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <div class="breadcrumb"><a href="index.html">Home</a> / Contact</div>
+        <h1>Contact</h1>
+        <p>Interesse in een training, workshop of lezing? Laat het ons weten, dan nemen we zo snel mogelijk contact met je op.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="container contact-grid">
+        <aside class="contact-info reveal">
+          <h2>BrainSense</h2>
+          <address>Meeuwenlaan 6<br>8011 BZ Zwolle</address>
+          <p>Trainingen door heel Nederland, online en incompany. Training in het Engels is op aanvraag mogelijk.</p>
+          <iframe class="map" title="Kaart: Meeuwenlaan 6, Zwolle" loading="lazy"
+            src="https://www.openstreetmap.org/export/embed.html?bbox=6.085%2C52.505%2C6.115%2C52.520&amp;layer=mapnik"></iframe>
+          <p><a href="https://www.openstreetmap.org/search?query=Meeuwenlaan%206%2C%208011%20BZ%20Zwolle" target="_blank" rel="noopener">Bekijk op kaart</a></p>
+        </aside>
+
+        <div class="reveal">
+          <h2>Stuur een bericht</h2>
+          <form class="form" id="contact-form">
+            <div class="form-row">
+              <div><label for="naam">Naam *</label><input id="naam" name="naam" required autocomplete="name"></div>
+              <div><label for="email">E-mail *</label><input id="email" name="email" type="email" required autocomplete="email"></div>
+            </div>
+            <div class="form-row">
+              <div><label for="organisatie">Organisatie / school</label><input id="organisatie" name="organisatie" autocomplete="organization"></div>
+              <div>
+                <label for="onderwerp">Interesse in</label>
+                <select id="onderwerp" name="onderwerp">
+                  <option>Slimmer leren</option>
+                  <option>Slimmer lesgeven</option>
+                  <option>Slimmer werken</option>
+                  <option>Lezing / keynote</option>
+                  <option>Anders</option>
+                </select>
+              </div>
+            </div>
+            <div><label for="bericht">Bericht *</label><textarea id="bericht" name="bericht" rows="6" required></textarea></div>
+            <button class="btn" type="submit">Verstuur</button>
+            <p class="form-note" id="form-status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a class="brand" href="index.html"><img src="assets/img/logo.png" alt="" width="42" height="42"><span style="color:#fff">Brain<b>Sense</b></span></a>
+          <p>Breinonderwijs voor bedrijfsleven, onderwijs en particulieren.</p>
+        </div>
+        <div>
+          <h3>Aanbod</h3>
+          <ul>
+            <li><a href="slimmer-leren.html">Slimmer leren</a></li>
+            <li><a href="slimmer-lesgeven.html">Slimmer lesgeven</a></li>
+            <li><a href="slimmer-werken.html">Slimmer werken</a></li>
+            <li><a href="lezingen.html">Lezingen</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Contact</h3>
+          <address style="font-style:normal">BrainSense<br>Meeuwenlaan 6<br>8011 BZ Zwolle</address>
+          <p><a href="contact.html">Stuur een bericht</a></p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; <span id="year"></span> BrainSense</span>
+        <span><a href="https://www.brainsense.nl/privacybeleid/">Privacybeleid</a></span>
+      </div>
+    </div>
+  </footer>
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>
