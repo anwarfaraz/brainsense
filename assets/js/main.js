@@ -1,5 +1,6 @@
-// After activating FormSubmit you can replace the address with the random alias it emails you.
-const FORM_ENDPOINT = "https://formsubmit.co/ajax/amazonbuysweetvilla@gmail.com";
+const FORM_ENDPOINT = "https://api.web3forms.com/submit";
+// Web3Forms access keys are public by design; they only allow sending to the registered inbox.
+const WEB3FORMS_KEY = "cf347f3c-ae6a-4680-be42-fed6ad500121";
 
 const toggle = document.querySelector(".nav-toggle");
 const links = document.querySelector(".nav-links");
@@ -35,9 +36,9 @@ if (form) {
     const status = document.getElementById("form-status");
     const button = form.querySelector("button[type=submit]");
     const data = Object.fromEntries(new FormData(form));
-    data._subject = `BrainSense aanvraag: ${data.onderwerp} - ${data.naam}`;
-    data._replyto = data.email;
-    data._template = "table";
+    data.access_key = WEB3FORMS_KEY;
+    data.subject = `BrainSense aanvraag: ${data.onderwerp} - ${data.naam}`;
+    data.from_name = "BrainSense website";
 
     button.disabled = true;
     status.className = "form-note";
@@ -49,7 +50,6 @@ if (form) {
         body: JSON.stringify(data),
       });
       const result = await res.json();
-      // FormSubmit returns HTTP 200 with success "false" for unactivated forms.
       if (!res.ok || String(result.success) !== "true") throw new Error(result.message || res.statusText);
       form.reset();
       status.className = "form-note success";
