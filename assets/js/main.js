@@ -1,5 +1,5 @@
-// Set to the BrainSense inbox before going live; the form opens the visitor's mail client.
-const CONTACT_EMAIL = "";
+// After activating FormSubmit you can replace the address with the random alias it emails you.
+const FORM_ENDPOINT = "https://formsubmit.co/ajax/amazonbuysweetvilla@gmail.com";
 
 const toggle = document.querySelector(".nav-toggle");
 const links = document.querySelector(".nav-links");
@@ -30,24 +30,30 @@ if ("IntersectionObserver" in window) {
 
 const form = document.getElementById("contact-form");
 if (form) {
-  form.addEventListener("submit", (e) => {
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
     const status = document.getElementById("form-status");
-    const data = new FormData(form);
-    if (!CONTACT_EMAIL) {
-      status.textContent = "Het contactformulier is nog niet gekoppeld. Gebruik voorlopig de gegevens hiernaast.";
-      return;
+    const button = form.querySelector("button[type=submit]");
+    const data = Object.fromEntries(new FormData(form));
+    data._subject = `BrainSense aanvraag: ${data.onderwerp} - ${data.naam}`;
+    data._replyto = data.email;
+    data._template = "table";
+
+    button.disabled = true;
+    status.textContent = "Bezig met versturen...";
+    try {
+      const res = await fetch(FORM_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(data),
+      });
+      if (!res.ok) throw new Error(res.statusText);
+      form.reset();
+      status.textContent = "Bedankt! Je bericht is verstuurd. We nemen zo snel mogelijk contact met je op.";
+    } catch {
+      status.textContent = "Versturen is mislukt. Probeer het later opnieuw.";
+    } finally {
+      button.disabled = false;
     }
-    const subject = `Aanvraag: ${data.get("onderwerp")} - ${data.get("naam")}`;
-    const body = [
-      `Naam: ${data.get("naam")}`,
-      `E-mail: ${data.get("email")}`,
-      `Organisatie: ${data.get("organisatie") || "-"}`,
-      `Onderwerp: ${data.get("onderwerp")}`,
-      "",
-      data.get("bericht"),
-    ].join("\n");
-    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    status.textContent = "Je e-mailprogramma wordt geopend om het bericht te versturen.";
   });
 }
