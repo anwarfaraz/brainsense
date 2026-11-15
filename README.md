@@ -1,7 +1,5 @@
 # brainsense
 
-[AI Generated - Needs Human Review]
-
 Static redesign of [brainsense.nl](https://www.brainsense.nl/), hosted on GitHub Pages.
 
 - Pages: `index.html`, `slimmer-leren.html`, `slimmer-lesgeven.html`, `slimmer-werken.html`, `lezingen.html`, `contact.html`
