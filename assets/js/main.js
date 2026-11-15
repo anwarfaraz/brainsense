@@ -48,7 +48,9 @@ if (form) {
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify(data),
       });
-      if (!res.ok) throw new Error(res.statusText);
+      const result = await res.json();
+      // FormSubmit returns HTTP 200 with success "false" for unactivated forms.
+      if (!res.ok || String(result.success) !== "true") throw new Error(result.message || res.statusText);
       form.reset();
       status.className = "form-note success";
       status.textContent = "Bedankt! Je bericht is verstuurd. We nemen zo snel mogelijk contact met je op.";
