@@ -1,6 +1,6 @@
 const FORM_ENDPOINT = "https://api.web3forms.com/submit";
 // Web3Forms access keys are public by design; they only allow sending to the registered inbox.
-const WEB3FORMS_KEY = "cf347f3c-ae6a-4680-be42-fed6ad500121";
+const WEB3FORMS_KEY = "efc49eab-b863-4619-91a1-933a300dbe50";
 
 const toggle = document.querySelector(".nav-toggle");
 const links = document.querySelector(".nav-links");
