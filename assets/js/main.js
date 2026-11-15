@@ -40,6 +40,7 @@ if (form) {
     data._template = "table";
 
     button.disabled = true;
+    status.className = "form-note";
     status.textContent = "Bezig met versturen...";
     try {
       const res = await fetch(FORM_ENDPOINT, {
@@ -49,8 +50,10 @@ if (form) {
       });
       if (!res.ok) throw new Error(res.statusText);
       form.reset();
+      status.className = "form-note success";
       status.textContent = "Bedankt! Je bericht is verstuurd. We nemen zo snel mogelijk contact met je op.";
     } catch {
+      status.className = "form-note error";
       status.textContent = "Versturen is mislukt. Probeer het later opnieuw.";
     } finally {
       button.disabled = false;
